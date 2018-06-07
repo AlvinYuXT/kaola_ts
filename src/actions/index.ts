@@ -1,9 +1,10 @@
 import fetch from '../service/index'
 
+const prefix: string = '/api'
 const getGoodsUrl: string = '/mall/goods'
 
 export function getGoods(page: number, perpage: number) {
-    const url = `${getGoodsUrl}?page=${page}`
+    const url = `${prefix}${getGoodsUrl}?page=${page}`
     return (dispatch: any) => {
         dispatch({ type: 'FETCH_GOOD_START' })
         return fetch
