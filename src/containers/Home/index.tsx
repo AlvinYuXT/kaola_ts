@@ -1,5 +1,4 @@
 import { Pagination } from 'antd'
-import 'antd/dist/antd.css'
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -16,7 +15,18 @@ class Home extends React.Component<any, any> {
     }
     public queryGoods(page: number, perpage: number) {
         const { getGoods } = this.props
-        getGoods()
+        getGoods(page, perpage)
+    }
+
+    public changePage = (page: number, perpage: number) => {
+        this.setState(
+            {
+                current: page
+            },
+            () => {
+                this.queryGoods(page, perpage)
+            }
+        )
     }
 
     public render() {
@@ -27,7 +37,8 @@ class Home extends React.Component<any, any> {
                 <header>欢迎森森</header>
                 <GoodList goods={goods} />
                 <Pagination
-                    defaultCurrent={current}
+                    current={current}
+                    onChange={this.changePage}
                     defaultPageSize={20}
                     total={1000}
                 />

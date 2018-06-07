@@ -16,7 +16,6 @@ interface Props {
 export default class Goods extends React.Component<Props, any> {
     public render() {
         const { goods } = this.props
-        console.log(goods)
         return goods.map(good => <Good key={good.goodsId} good={good} />)
     }
 }

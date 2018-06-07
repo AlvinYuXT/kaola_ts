@@ -3,10 +3,11 @@ import fetch from '../service/index'
 const getGoodsUrl: string = '/mall/goods'
 
 export function getGoods(page: number, perpage: number) {
+    const url = `${getGoodsUrl}?page=${page}`
     return (dispatch: any) => {
         dispatch({ type: 'FETCH_GOOD_START' })
         return fetch
-            .get(getGoodsUrl)
+            .get(url)
             .then(json => {
                 dispatch({
                     type: 'FETCH_GOOD_SUCCESS',

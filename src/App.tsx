@@ -1,3 +1,4 @@
+import 'antd/dist/antd.css'
 import * as React from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
