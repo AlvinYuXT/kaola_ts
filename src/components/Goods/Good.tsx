@@ -25,7 +25,7 @@ export default class Goods extends React.Component<Props, any> {
             >
                 <Meta
                     title={good.title}
-                    className={meta}
+                    className="meta"
                     description={`${good.actualCurrentPrice}/原价:${
                         good.marketPrice
                     }`}
